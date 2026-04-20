@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  /* Definisikan warna custom dari tutorial di sini */
+  --color-special-green: #22c55e; 
+  --color-gray-01: #6b7280;
+  
+  /* Jika ada warna lain dari App.jsx sebelumnya, bisa ditambahkan juga: */
+  --color-primary: #2563eb;
+  --color-special-mainBg: #f3f4f6;
+}
