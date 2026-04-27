@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 function UserCard(props) {
-  // Mengambil data dari parent komponen (Exercise)
+  // Destructuring props
   const { name, email, street, city } = props;
   
-  // Membuat state untuk mendeteksi apakah tombol diklik
+  // State untuk tombol
   const [clicked, setClicked] = useState(false);
 
   return (
@@ -17,10 +17,9 @@ function UserCard(props) {
         <span className="font-medium">Address:</span> {street}, {city}
       </p>
       
-      {/* Menggunakan event onClick dan template literals (backtick) */}
       <button
         className={`${
-          clicked ? "bg-special-green" : "bg-gray-01"
+          clicked ? "bg-green-500" : "bg-gray-500"
         } text-white p-2 mt-4 rounded-md`}
         onClick={() => setClicked(true)}
       >
