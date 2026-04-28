@@ -1,38 +1,49 @@
-import React, { useEffect, useState } from "react";
-import UserCard from "./UserCard";
-import { getUsers } from "./Services"; // Import fungsi ambil data
+import React, { useState, useEffect } from "react";
+import { postsData } from "./postsData.js"; 
+import PostCard from "./PostCard";
 
 function Exercise() {
-  // State untuk menampung data user, awalnya berupa array kosong []
-  const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
+  
+  const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect dijalankan otomatis saat komponen pertama kali muncul di layar
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchPosts = async () => {
       try {
-        // Menunggu data selesai diambil dari Services
-        const data = await getUsers();
-        setUsers(data); // Memasukkan data ke dalam state
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+        
+        setPosts(postsData); 
+        setIsLoading(false); 
       } catch (error) {
-        console.error("Component Gagal menampilkan data: ", error.message);
+        console.error("Gagal memuat data:", error);
+        setIsLoading(false);
       }
     };
 
-    fetchData();
-  }, []); // Array kosong [] artinya hanya dijalankan 1 kali
+    fetchPosts();
+  }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-center mb-6 text-blue-700">
-        User Cards
-      </h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {/* Jika data masih kosong (karena menunggu delay), bisa tampilkan teks loading */}
-        {users.length === 0 ? (
-          <p className="text-center col-span-full text-gray-500">Loading data...</p>
+    <div className="min-h-screen bg-gray-100 p-10 font-sans">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-3xl font-bold text-center text-special-red2 mb-12">
+          Post Cards
+        </h1>
+        
+        {isLoading ? (
+          <div className="flex justify-center items-center py-20">
+            <p className="text-xl font-medium text-gray-500 animate-pulse">
+              Memuat data ...
+            </p>
+          </div>
         ) : (
-          users.map((user) => <UserCard key={user.id} {...user} />)
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {posts.map((post) => (
+              <PostCard key={post.id} {...post} />
+            ))}
+          </div>
         )}
+
       </div>
     </div>
   );

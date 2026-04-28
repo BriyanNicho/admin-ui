@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 
 function UserCard(props) {
-  // Destructuring props
   const { name, email, street, city } = props;
   
-  // State untuk tombol
   const [clicked, setClicked] = useState(false);
 
   return (

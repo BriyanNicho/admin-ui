@@ -1,7 +1,5 @@
-// Membuat fungsi getUsers yang berjalan secara Asynchronous
 export const getUsers = () => {
   return new Promise((resolve, reject) => {
-    // Mensimulasikan jeda jaringan selama 1.5 detik (1500 ms)
     setTimeout(() => {
       const users = [
         {
@@ -27,7 +25,6 @@ export const getUsers = () => {
         },
       ];
       
-      // Mengirimkan data jika berhasil
       resolve(users);
     }, 1500); 
   });

@@ -1,22 +1,15 @@
-/* 1. Import Font Inter dan Montserrat dari Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-/* 2. Import seluruh gaya bawaan Tailwind CSS */
 @import "tailwindcss";
 
-/* 3. Memperkecil base font-size menjadi 12px (75% dari 16px standar browser) 
-      agar ukuran form sesuai dengan desain di PDF */
 html {
   font-size: 75%;
 }
 
-/* 4. Konfigurasi Tema (Warna dan Font) khusus Tailwind v4 */
 @theme {
-  /* Pengaturan Font Family */
+  --color-special-red2: #b83016;
   --font-body: "Inter", sans-serif;
   --font-poppins: "Montserrat", sans-serif;
-
-  /* Pengaturan Custom Colors dari Design System Figma */
   --color-primary: #299d91;
   --color-secondary: #525256;
   --color-defaultBlack: #191919;
