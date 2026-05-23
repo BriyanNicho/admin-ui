@@ -1,13 +1,19 @@
-import { Link } from "react-router-dom";
 import React from "react";
 import LabeledInput from "../Elements/LabeledInput";
-import CheckBox from "../Elements/CheckBox";
 import Button from "../Elements/Button";
+import { Link } from "react-router-dom"; // Langsung import Link untuk materi 9
 
-function FormSignIn() {
+function FormSignUp() {
   return (
     <>
       <form action="">
+        <LabeledInput
+          label="Full Name"
+          type="text"
+          placeholder="John Doe"
+          name="name"
+          id="name"
+        />
         <LabeledInput
           label="Email address"
           type="email"
@@ -22,19 +28,16 @@ function FormSignIn() {
           name="password"
           id="password"
         />
-        <CheckBox 
-          label="Keep me signed in" 
-          name="status" 
-          id="status" 
-        />
         <Button type="submit" variant="primary">
-          Login
+          Register
         </Button>
       </form>
+      
       <div className="my-9 px-7 flex flex-col justify-center items-center text-xs text-gray-03">
         <div className="border border-gray-05 w-full"></div>
-        <div className="px-2 bg-special-mainBg absolute"> or sign in with</div>
+        <div className="px-2 bg-special-mainBg absolute"> or sign up with</div>
       </div>
+      
       <div className="mb-8">
         <Button type="button" variant="secondary">
           <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 0 48 48">
@@ -46,13 +49,16 @@ function FormSignIn() {
           <span>Continue with Google</span>
         </Button>
       </div>
+      
+      {/* Link kembali ke halaman Login */}
       <div className="flex justify-center">
-        <Link to="/register" className="text-primary text-sm font-bold">
-        Create an account
-         </Link>
+        <span className="text-sm text-gray-01 mr-1">Already have an account?</span>
+        <Link to="/login" className="text-primary text-sm font-bold">
+          Sign In
+        </Link>
       </div>
     </>
   );
 }
 
-export default FormSignIn;
+export default FormSignUp;

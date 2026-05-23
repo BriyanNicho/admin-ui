@@ -1,8 +1,39 @@
 import "./App.css";
-import SignInPage from "./pages/signIn";
+import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
+import SignInPage from "./pages/SignIn";
+import SignUpPage from "./pages/SignUp"; 
 
 function App() {
-  return <SignInPage />;
+  const myRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <div className="flex justify-center items-center min-h-screen">
+          <Link to="/login" className="p-2 m-5 bg-primary text-white rounded-md">
+            Login
+          </Link>
+          |
+          <Link to="/register" className="p-2 m-5 bg-primary text-white rounded-md">
+            Register
+          </Link>
+        </div>
+      ),
+    },
+    {
+      path: "/login",
+      element: <SignInPage />,
+    },
+{
+      path: "/register",
+      element: <SignUpPage />,
+    }
+  ]);
+
+  return (
+    <>
+      <RouterProvider router={myRouter} />
+    </>
+  );
 }
 
 export default App;

@@ -1,0 +1,14 @@
+// Isi dari file src/pages/signUp.jsx
+import React from "react";
+import AuthLayout from "../components/Layouts/AuthLayout";
+import FormSignUp from "../components/Fragments/FormSignUp";
+
+function SignUpPage() {
+  return (
+    <AuthLayout>
+      <FormSignUp />
+    </AuthLayout>
+  );
+}
+
+export default SignUpPage;
