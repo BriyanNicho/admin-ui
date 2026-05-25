@@ -2,6 +2,8 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import SignInPage from "./pages/SignIn";
 import SignUpPage from "./pages/SignUp"; 
+import ErrorRoute from "./pages/error";
+import DashboardPage from "./pages/dashboard"; // Pastikan huruf "d" sesuai dengan nama file-mu
 
 function App() {
   const myRouter = createBrowserRouter([
@@ -18,14 +20,20 @@ function App() {
           </Link>
         </div>
       ),
+      errorElement: <ErrorRoute />, // Penempatan yang benar ada di dalam objek root ini
     },
     {
       path: "/login",
       element: <SignInPage />,
     },
-{
+    {
       path: "/register",
       element: <SignUpPage />,
+    },
+    // Karena kamu sudah meng-import Dashboard, mari kita tambahkan rutenya sekalian (Materi 10)
+    {
+      path: "/dashboard",
+      element: <DashboardPage />
     }
   ]);
 
