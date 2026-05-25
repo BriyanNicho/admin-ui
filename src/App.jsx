@@ -1,10 +1,9 @@
-import "./App.css";
-import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import SignInPage from "./pages/SignIn";
 import SignUpPage from "./pages/SignUp"; 
+import "./App.css";
+import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import ErrorRoute from "./pages/error";
-import DashboardPage from "./pages/dashboard"; // Pastikan huruf "d" sesuai dengan nama file-mu
-
+import DashboardPage from "./pages/dashboard"; 
 function App() {
   const myRouter = createBrowserRouter([
     {
