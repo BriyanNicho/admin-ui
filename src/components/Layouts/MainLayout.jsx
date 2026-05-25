@@ -1,9 +1,22 @@
 import React from "react";
 import Logo from "../Elements/Logo";
 import Input from "../Elements/Input";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import Icon from "../Elements/Icon";
+import { NavLink } from "react-router-dom";
 
 function MainLayout(props) {
   const { children } = props;
+
+  const menu = [
+    { id: 1, name: "Overview", icon: <Icon.Overview />, link: "/" },
+    { id: 2, name: "Balances", icon: <Icon.Balance />, link: "/balance" },
+    { id: 3, name: "Transaction", icon: <Icon.Transaction />, link: "/transaction" },
+    { id: 4, name: "Bills", icon: <Icon.Bill />, link: "/bill" },
+    { id: 5, name: "Expenses", icon: <Icon.Expense />, link: "/expense" },
+    { id: 6, name: "Goals", icon: <Icon.Goal />, link: "/goal" },
+    { id: 7, name: "Settings", icon: <Icon.Setting />, link: "/setting" },
+  ];
 
   return (
     <div className="flex min-h-screen">
@@ -12,24 +25,28 @@ function MainLayout(props) {
           <div className="mb-10">
             <Logo variant="secondary" />
           </div>
-          <nav>
-            <div className="flex hover:bg-special-bg3 hover:text-white px-4 py-3 rounded-md">
-              <div className="mx-auto sm:mx-0">O</div>
-              <div className="ms-3 hidden sm:block">Overview</div>
-            </div>
-            <div className="flex hover:bg-special-bg3 hover:text-white px-4 py-3 rounded-md">
-              <div className="mx-auto sm:mx-0">B</div>
-              <div className="ms-3 hidden sm:block">Balances</div>
-            </div>
-            <div className="flex hover:bg-special-bg3 hover:text-white px-4 py-3 rounded-md">
-              <div className="mx-auto sm:mx-0">T</div>
-              <div className="ms-3 hidden sm:block">Transactions</div>
-            </div>
-          </nav>
+<nav>
+          {menu.map((item) => (
+            <NavLink
+              key={item.id}
+              to={item.link}
+              className={({ isActive }) =>
+                `flex px-4 py-3 rounded-md hover:text-white hover:font-bold hover:scale-105 ${
+                  isActive
+                    ? "bg-primary text-white font-bold"
+                    : "hover:bg-special-bg3"
+                }`
+              }
+            >
+              <div className="mx-auto sm:mx-0">{item.icon}</div>
+              <div className="ms-3 hidden sm:block">{item.name}</div>
+            </NavLink>
+          ))}
+        </nav>
         </div>
         <div>
           <div className="flex bg-special-bg3 text-white px-4 py-3 rounded-md">
-            <div className="mx-auto sm:mx-0">L</div>
+            <Icon.Logout />
             <div className="ms-3 hidden sm:block">Logout</div>
           </div>
           <div className="border my-10 border-b-special-bg"></div>
@@ -40,7 +57,7 @@ function MainLayout(props) {
               <br />
               View Profile
             </div>
-            <div className="hidden sm:block">icon</div>
+            <Icon.Detail />
           </div>
         </div>
       </aside>
@@ -52,7 +69,9 @@ function MainLayout(props) {
             <div className="text-gray-03 hidden sm:block">May 19, 2023</div>
           </div>
           <div className="flex items-center">
-            <div className="me-10">icon</div>
+            <div className="me-10">
+              <NotificationsIcon className="text-gray-01 scale-110" />
+            </div>
             <Input backgroundColor="bg-white" border="border-white" />
           </div>
         </header>
