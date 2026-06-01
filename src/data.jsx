@@ -4,7 +4,8 @@ export const bills = [
   {
     id: 1,
     name: "Figma - Yearly Plan",
-    description: "For advanced security and more flexible controls, the Proffesional plans help you scale design process company-wide.",
+    description:
+      "For advanced security and more flexible controls, the Proffesional plans help you scale design process company-wide.",
     icon: <Icon.Figma />,
     date: "15",
     month: "May",
@@ -14,7 +15,8 @@ export const bills = [
   {
     id: 2,
     name: "Adobe Inc - Yearly Plan",
-    description: "For advanced security and more flexible controls, the Proffesional plans help you scale design process company-wide.",
+    description:
+      "For advanced security and more flexible controls, the Proffesional plans help you scale design process company-wide.",
     icon: <Icon.Adobe />,
     date: "16",
     month: "June",
@@ -24,14 +26,164 @@ export const bills = [
 ];
 
 export const expensesBreakdowns = [
-  { id: 1, category: "Housing", amount: 250, percentage: 15, icon: <Icon.House />, arrow: <Icon.ArrowUp /> },
-  { id: 2, category: "Food", amount: 350, percentage: 8, icon: <Icon.Food />, arrow: <Icon.ArrowDown /> },
-  { id: 3, category: "Transportation", amount: 50, percentage: 12, icon: <Icon.Transport />, arrow: <Icon.ArrowDown /> },
-  { id: 4, category: "Entertainment", amount: 80, percentage: 15, icon: <Icon.Gamepad />, arrow: <Icon.ArrowDown /> },
-  { id: 5, category: "Shopping", amount: 420, percentage: 25, icon: <Icon.Shopping />, arrow: <Icon.ArrowUp /> },
-  { id: 6, category: "Others", amount: 650, percentage: 23, icon: <Icon.Other />, arrow: <Icon.ArrowUp /> },
+  {
+    id: 1,
+    category: "Housing",
+    amount: 250,
+    percentage: 15,
+    icon: <Icon.House />,
+    arrow: <Icon.ArrowUp />,
+  },
+  {
+    id: 2,
+    category: "Food",
+    amount: 350,
+    percentage: 8,
+    icon: <Icon.Food />,
+    arrow: <Icon.ArrowDown />,
+  },
+  {
+    id: 3,
+    category: "Transportation",
+    amount: 50,
+    percentage: 12,
+    icon: <Icon.Transport />,
+    arrow: <Icon.ArrowDown />,
+  },
+  {
+    id: 4,
+    category: "Entertainment",
+    amount: 80,
+    percentage: 15,
+    icon: <Icon.Gamepad />,
+    arrow: <Icon.ArrowDown />,
+  },
+  {
+    id: 5,
+    category: "Shopping",
+    amount: 420,
+    percentage: 25,
+    icon: <Icon.Shopping />,
+    arrow: <Icon.ArrowUp />,
+  },
+  {
+    id: 6,
+    category: "Others",
+    amount: 650,
+    percentage: 23,
+    icon: <Icon.Other />,
+    arrow: <Icon.ArrowUp />,
+  },
 ];
 
+export const expensesStatistics = {
+  dataKey: "date",
+  series: [
+    { dataKey: "amountThisWeek", label: "This Week", color: "#E8E8E8" },
+    { dataKey: "amountLastWeek", label: "Last Week", color: "#299D91" },
+  ],
+  data: [
+    {
+      id: 1,
+      date: "17 Sun",
+      amountThisWeek: 25000,
+      amountLastWeek: 50000,
+    },
+    {
+      id: 2,
+      date: "18 Mon",
+      amountThisWeek: 50000,
+      amountLastWeek: 10000,
+    },
+    {
+      id: 3,
+      date: "19 Tue",
+      amountThisWeek: 10000,
+      amountLastWeek: 50000,
+    },
+    {
+      id: 4,
+      date: "20 Wed",
+      amountThisWeek: 50000,
+      amountLastWeek: 50000,
+    },
+    {
+      id: 5,
+      date: "21 Thu",
+      amountThisWeek: 50000,
+      amountLastWeek: 10000,
+    },
+    {
+      id: 6,
+      date: "22 Fri",
+      amountThisWeek: 25000,
+      amountLastWeek: 10000,
+    },
+    {
+      id: 7,
+      date: "23 Sat",
+      amountThisWeek: 50000,
+      amountLastWeek: 10000,
+    },
+  ],
+};
+
+export const balances = [
+  {
+    id: 1,
+    bankName: "Master Card",
+    branchName: "",
+    accountType: "Credit Card",
+    accountNumber: "3388 4556 8860 80000",
+    balance: 25000,
+    logo: <Icon.Mastercard width={40} />, 
+  },
+  {
+    id: 2,
+    bankName: "AB Bank Ltd.",
+    branchName: "Park Street Branch",
+    accountType: "Checking",
+    accountNumber: "693 456 69 90000",
+    balance: 25000,
+    logo: <Icon.Visa width={40} />,
+  },
+  {
+    id: 3,
+    bankName: "Brac Bank Ltd",
+    branchName: "",
+    accountType: "Saving",
+    accountNumber: "133 456 886 80000",
+    balance: 25000,
+    logo: "",
+  },
+  {
+    id: 4,
+    bankName: "AB Bank Ltd",
+    branchName: "",
+    accountType: "Investment",
+    accountNumber: "698 456 866 20000",
+    balance: 25000,
+    logo: "",
+  },
+  {
+    id: 5,
+    bankName: "Loan",
+    branchName: "",
+    accountType: "City Bank Ltd",
+    accountNumber: "363 456 896 60000",
+    balance: 25000,
+    logo: "",
+  }
+];
+
+export const goals = {
+  id: 1,
+  targetAmount: 20000,
+  presentAmount: 12500,
+  month: "Nov",
+  year: 2023,
+  arrow: <Icon.ArrowUp />,
+};
 export const transactions = [
   { id: 1, transactionName: "GTR 5", categoryId: 5, shopName: "Gadget & Gear", date: "2023-05-17", paymentMethod: "Credit Card", amount: 160, type: "Expense", icon: <Icon.Gamepad /> },
   { id: 2, transactionName: "Polo Shirt", categoryId: 5, shopName: "XL Fashions", date: "2023-05-17", paymentMethod: "Credit Card", amount: 20, type: "Expense", icon: <Icon.Shopping /> },
