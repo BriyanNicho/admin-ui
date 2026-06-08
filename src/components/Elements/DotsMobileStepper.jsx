@@ -1,12 +1,15 @@
+// src/components/Elements/DotsMobileStepper.jsx
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import MobileStepper from "@mui/material/MobileStepper";
 import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import { ThemeContext } from "../../context/themeContext"; // Import context
 
 export default function DotsMobileStepper(props) {
   const { data } = props;
+  const { theme: themeMode } = React.useContext(ThemeContext); // Aliaskan menjadi themeMode
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -27,38 +30,26 @@ export default function DotsMobileStepper(props) {
         steps={data.length}
         position="static"
         activeStep={activeStep}
-				sx={{
+        sx={{
           maxWidth: "400",
           flexGrow: 1,
           "& .MuiMobileStepper-dot": { 
-	          backgroundColor: "darkgray" 
-	        },
+            backgroundColor: "darkgray" 
+          },
           "& .MuiMobileStepper-dotActive": {
-            backgroundColor: "#299D91",
+            backgroundColor: themeMode.color, // Gunakan nilai warna dari context
           },
         }}
+        // ... (biarkan bagian nextButton dan backButton seperti aslinya)
         nextButton={
-          <Button
-            size="small"
-            onClick={handleNext}
-            disabled={activeStep === data.length - 1}
-            sx={{ color: "black" }}
-          >
+          <Button size="small" onClick={handleNext} disabled={activeStep === data.length - 1} sx={{ color: "black" }}>
             Next
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
+            {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
           </Button>
         }
         backButton={
           <Button size="small" onClick={handleBack} disabled={activeStep === 0} sx={{ color: "black" }}>
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
+            {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
             Back
           </Button>
         }

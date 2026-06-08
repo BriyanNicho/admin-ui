@@ -182,7 +182,6 @@ export const goals = {
   presentAmount: 12500,
   month: "Nov",
   year: 2023,
-  arrow: <Icon.ArrowUp />,
 };
 export const transactions = [
   { id: 1, transactionName: "GTR 5", categoryId: 5, shopName: "Gadget & Gear", date: "2023-05-17", paymentMethod: "Credit Card", amount: 160, type: "Expense", icon: <Icon.Gamepad /> },

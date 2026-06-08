@@ -18,25 +18,32 @@ import {
 function dashboard() {
   return (
     <MainLayout>
-      <div className="grid sm:grid-cols-12 sm:grid-rows-3 gap-6 h-full">
-        <div className="sm:col-span-4">
+      {/* Menggunakan grid-cols-1 untuk mobile, lalu lg:grid-cols-12 untuk desktop */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto">
+        
+        {/* Baris Pertama */}
+        <div className="lg:col-span-4">
           <CardBalance data={balances} />
         </div>
-        <div className="sm:col-span-4">
+        <div className="lg:col-span-4">
           <CardGoal data={goals} />
         </div>
-        <div className="sm:col-span-4">
+        <div className="lg:col-span-4">
           <CardUpcomingBill data={bills} />
         </div>
-        <div className="sm:col-span-4 sm:row-span-2">
-          <CardRecentTransaction data={transactions} />
+
+        {/* Baris Kedua & Ketiga */}
+        <div className="lg:col-span-4 lg:row-span-2 flex flex-col">
+          {/* Card ini akan mengambil tinggi dua baris dan mengisi ruang yang ada */}
+          <CardRecentTransaction data={transactions} className="flex-1" />
         </div>
-        <div className="sm:col-span-8">
+        <div className="lg:col-span-8">
           <CardStatistic data={expensesStatistics} />
         </div>
-        <div className="sm:col-span-8">
+        <div className="lg:col-span-8">
           <CardExpenseBreakdown data={expensesBreakdowns} />
         </div>
+        
       </div>
     </MainLayout>
   );
