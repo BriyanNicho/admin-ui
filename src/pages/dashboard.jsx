@@ -18,7 +18,7 @@ import {
 function dashboard() {
   return (
     <MainLayout>
-      {/* Menggunakan grid-cols-1 untuk mobile, lalu lg:grid-cols-12 untuk desktop */}
+      {/* 1. PERUBAHAN GRID: Menggunakan grid-cols-1 untuk HP, dan lg:grid-cols-12 untuk Laptop/PC */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto">
         
         {/* Baris Pertama */}
@@ -32,11 +32,12 @@ function dashboard() {
           <CardUpcomingBill data={bills} />
         </div>
 
-        {/* Baris Kedua & Ketiga */}
+        {/* 2. KARTU TRANSAKSI: Diberi flex-col agar bisa mengisi tinggi 2 baris (row-span-2) dengan rapi */}
         <div className="lg:col-span-4 lg:row-span-2 flex flex-col">
-          {/* Card ini akan mengambil tinggi dua baris dan mengisi ruang yang ada */}
           <CardRecentTransaction data={transactions} className="flex-1" />
         </div>
+        
+        {/* Baris Kedua & Ketiga untuk Statistik */}
         <div className="lg:col-span-8">
           <CardStatistic data={expensesStatistics} />
         </div>
